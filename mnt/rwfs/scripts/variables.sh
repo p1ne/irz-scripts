@@ -1,0 +1,32 @@
+echo CONFIGURE ALL VARIABLES IN variables.sh BEFORE USAGE # remove this and next line after configuration
+exit 0
+
+OPENCELLID_KEY=<<OPENCELLID_KEY>>
+NMA_KEY=<<NMA_KEY>>
+YANDEX_KEY=<<YANDEX_KEY>>
+QPUSH_CODE=<<QPUSH_CODE>>
+QPUSH_NAME=<<QPUSH_NAME>>
+
+PHONE_AP_NAME=<<PHONE_AP_NAME>>
+PHONE_AP_MAC=<<PHONE_AP_MAC>>
+PHONE_AP_PASSWORD=<<PHONE_AP_PASSWORD>>
+ROUTER_AP_NAME=<<ROUTER_AP_NAME>>
+ROUTER_AP_PASSWORD=<<ROUTER_AP_PASSWORD>>
+
+MODEM_DEVICE=/dev/ttyUSB0
+MODEM_NAME="HUAWEI Mobile"
+MODEM_INTERFACE=Modem
+
+NOTIFY_SCRIPT=/mnt/rwfs/scripts/notify-myandroid-curl.sh
+COORDINATES_SCRIPT=/mnt/rwfs/scripts/get-coordinates-modem-yandex-locator.sh
+YOTA_SCRIPT=/mnt/rwfs/scripts/yota-start-curl.sh
+
+YOTA_DEVICE=eth1
+YOTA_CITY=msk
+
+APPLICATION=$ROUTER_AP_NAME
+EVENT=Engine
+DESC=Started
+
+PING_HOST=ya.ru
+

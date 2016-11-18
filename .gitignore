@@ -1,0 +1,5 @@
+remove_passwords.patch
+restore_passwords.patch
+*.orig
+*.rej
+config/
