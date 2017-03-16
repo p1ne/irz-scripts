@@ -7,11 +7,13 @@ BASE=/mnt/rwfs
 . $BASE/scripts/pre-req.sh curl
 
 
-MODEM_UP="0"
+MODEM_UP="1"
 
-while [ "$MODEM_UP" != "1" ] ; do
-MODEM_UP=$(curl -s http://localhost | grep 'Connection state: established' | wc -l)
-sleep 5
+while [ "$MODEM_UP" != "0" ] ; do
+#MODEM_UP=$(curl -s http://localhost | grep 'Connection state: established' | wc -l)
+#sleep 5
+ping -w1 ${PING_HOST} > /dev/null
+MODEM_UP=$?
 done
 
 if [ ! -z "$1" ] ; then
