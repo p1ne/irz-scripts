@@ -29,10 +29,10 @@ while [ -z "$PARAM" ] && [ -z "$LAC" ] && [ -z "$LCID" ]; do
   MNC=$(echo $PARAM | cut -c4-5)
   LAC=$(cat /tmp/opinfo | grep LAC | cut -f2 -d\ )
   LCID=$(cat /tmp/opinfo | grep CellID | cut -f2 -d\ )
-  LAC=$(printf "%d" 0x$LAC)
-  LCID=$(printf "%d" 0x$LCID)
   sleep 1
 done
+LAC=$(printf "%d" 0x$LAC)
+LCID=$(printf "%d" 0x$LCID)
 
 while [ "$MODEM_UP" != "0" ] ; do
 ping -w1 ya.ru > /dev/null

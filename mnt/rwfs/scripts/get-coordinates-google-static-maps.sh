@@ -1,4 +1,8 @@
-f [ "$WIFI_MODE" = "CLIENT" ]; then
+#!/bin/bash
+
+[ -e /mnt/rwfs/settings/settings.wifi ] && . /mnt/rwfs/settings/settings.wifi
+
+if [ "$WIFI_MODE" = "CLIENT" ]; then
    exit 0
 fi
 
@@ -25,11 +29,12 @@ while [ -z "$PARAM" ] && [ -z "$LAC" ] && [ -z "$LCID" ]; do
   MNC=$(echo $PARAM | cut -c4-5)
   LAC=$(cat /tmp/opinfo | grep LAC | cut -f2 -d\ )
   LCID=$(cat /tmp/opinfo | grep CellID | cut -f2 -d\ )
-  LAC=$(printf "%d" 0x$LAC)
-  LCID=$(printf "%d" 0x$LCID)
-  MNC=$(printf "%d" $MNC)
   sleep 1
 done
+
+LAC=$(printf "%d" 0x$LAC)
+LCID=$(printf "%d" 0x$LCID)
+MNC=$(printf "%d" $MNC)
 
 while [ "$MODEM_UP" != "0" ] ; do
 ping -w1 ${PING_HOST} > /dev/null
